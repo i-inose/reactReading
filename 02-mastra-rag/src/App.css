@@ -1,0 +1,383 @@
+/* ============================================================
+   App.css - コンポーネントスタイル（BEM 記法）
+   ============================================================ */
+
+/* --------------------------------------------------
+   Header
+   -------------------------------------------------- */
+.header {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-md) var(--space-lg);
+}
+
+.header__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.header__subtitle {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  margin-left: var(--space-sm);
+}
+
+.header__nav {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.header__link {
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.header__link:hover {
+  color: var(--color-primary);
+}
+
+.header__link--active {
+  color: var(--color-primary);
+  background-color: var(--color-user-bg);
+}
+
+/* --------------------------------------------------
+   ChatPage
+   -------------------------------------------------- */
+.chat-page {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 120px);
+}
+
+.chat-page__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+
+.chat-page__title {
+  font-size: 1.25rem;
+}
+
+.chat-page__clear {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  background: none;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+}
+
+.chat-page__clear:hover {
+  color: var(--color-danger);
+  border-color: var(--color-danger);
+}
+
+.chat-page__messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-md) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.chat-page__empty {
+  text-align: center;
+  color: var(--color-empty-text);
+  padding: var(--space-xl);
+  line-height: 2;
+}
+
+/* --------------------------------------------------
+   ChatMessage
+   -------------------------------------------------- */
+.chat-message {
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  max-width: 85%;
+}
+
+.chat-message--user {
+  background-color: var(--color-user-bg);
+  align-self: flex-end;
+  border-bottom-right-radius: var(--space-xs);
+}
+
+.chat-message--assistant {
+  background-color: var(--color-assistant-bg);
+  align-self: flex-start;
+  border-bottom-left-radius: var(--space-xs);
+}
+
+.chat-message__role {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.chat-message__content {
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.7;
+}
+
+.chat-message__thinking {
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+.chat-message__sources {
+  margin-top: var(--space-sm);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--color-border);
+}
+
+.chat-message__sources-toggle {
+  font-size: 0.8rem;
+  color: var(--color-primary);
+  background: none;
+  padding: var(--space-xs) 0;
+}
+
+.chat-message__sources-toggle:hover {
+  text-decoration: underline;
+}
+
+.chat-message__sources-list {
+  margin-top: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* --------------------------------------------------
+   ChatInput
+   -------------------------------------------------- */
+.chat-input {
+  display: flex;
+  gap: var(--space-sm);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.chat-input__field {
+  flex: 1;
+  padding: var(--space-sm) var(--space-md);
+}
+
+.chat-input__button {
+  background-color: var(--color-primary);
+  color: white;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.chat-input__button:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+}
+
+/* --------------------------------------------------
+   SourceCard
+   -------------------------------------------------- */
+.source-card {
+  background-color: var(--color-source-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.source-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-xs);
+}
+
+.source-card__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.source-card__score {
+  font-size: 0.75rem;
+  color: var(--color-success);
+  font-weight: 600;
+}
+
+.source-card__text {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+/* --------------------------------------------------
+   DocumentUpload
+   -------------------------------------------------- */
+.doc-upload {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.doc-upload__heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.doc-upload__error {
+  background-color: #fef2f2;
+  color: var(--color-danger);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .doc-upload__error {
+    background-color: #450a0a;
+  }
+}
+
+.doc-upload__title {
+  width: 100%;
+}
+
+.doc-upload__text {
+  width: 100%;
+  resize: vertical;
+  min-height: 150px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.doc-upload__button {
+  align-self: flex-end;
+  background-color: var(--color-primary);
+  color: white;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+
+.doc-upload__button:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+}
+
+/* --------------------------------------------------
+   DocumentList
+   -------------------------------------------------- */
+.doc-list {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+}
+
+.doc-list__heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+.doc-list__loading {
+  color: var(--color-text-secondary);
+  text-align: center;
+  padding: var(--space-xl);
+}
+
+.doc-list__empty {
+  text-align: center;
+  color: var(--color-empty-text);
+  padding: var(--space-xl);
+  line-height: 2;
+}
+
+.doc-list__items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.doc-list__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.doc-list__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.doc-list__title {
+  font-weight: 600;
+}
+
+.doc-list__meta {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+.doc-list__delete {
+  font-size: 0.85rem;
+  color: var(--color-danger);
+  background: none;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+}
+
+.doc-list__delete:hover {
+  border-color: var(--color-danger);
+  background-color: #fef2f2;
+}
+
+@media (prefers-color-scheme: dark) {
+  .doc-list__delete:hover {
+    background-color: #450a0a;
+  }
+}
+
+/* --------------------------------------------------
+   DocumentsPage
+   -------------------------------------------------- */
+.documents-page__title {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-lg);
+}

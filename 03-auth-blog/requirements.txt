@@ -1,0 +1,17 @@
+# FastAPI: Python 製 Web フレームワーク
+fastapi>=0.115.0
+
+# Uvicorn: ASGI サーバー（FastAPI を動かすために必要）
+uvicorn>=0.34.0
+
+# SQLAlchemy: Python の ORM（Object-Relational Mapping）ライブラリ
+sqlalchemy>=2.0.0
+
+# PyJWT: JWT（JSON Web Token）の生成・検証ライブラリ
+pyjwt>=2.9.0
+
+# bcrypt: パスワードハッシュ化ライブラリ
+bcrypt>=4.2.0
+
+# Pydantic: データバリデーション（FastAPI に内包されているが明示的に記載）
+pydantic>=2.10.0

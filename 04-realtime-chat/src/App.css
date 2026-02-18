@@ -1,0 +1,505 @@
+/* ============================================================
+   App.css ― コンポーネント固有のスタイル
+   BEM 記法（Block__Element--Modifier）で命名する
+   ============================================================ */
+
+/* --------------------------------------------------
+   アプリ全体のレイアウト
+   -------------------------------------------------- */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------
+   参加ページ
+   -------------------------------------------------- */
+.join-page {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.join-form {
+  width: 100%;
+  max-width: 400px;
+  padding: 2.5rem 2rem;
+  background-color: var(--bg-primary);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.join-form__title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.join-form__description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.join-form__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.join-form__input {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: border-color 0.2s;
+}
+
+.join-form__input:focus {
+  border-color: var(--accent-color);
+}
+
+.join-form__error {
+  color: var(--danger-color);
+  font-size: 0.85rem;
+}
+
+.join-form__btn {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent-color);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.join-form__btn:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+}
+
+.join-form__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------
+   チャットページ
+   -------------------------------------------------- */
+.chat-page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.75rem;
+  gap: 0.5rem;
+}
+
+.chat-page__body {
+  flex: 1;
+  display: flex;
+  gap: 0.75rem;
+  min-height: 0;
+}
+
+.chat-page__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-primary);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  min-width: 0;
+}
+
+.chat-page__footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.25rem 0;
+}
+
+.chat-page__leave-btn {
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  border-radius: 6px;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.chat-page__leave-btn:hover {
+  color: var(--danger-color);
+  background-color: var(--accent-light);
+}
+
+/* --------------------------------------------------
+   ルーム選択タブ
+   -------------------------------------------------- */
+.room-selector {
+  display: flex;
+  gap: 0.25rem;
+  background-color: var(--bg-primary);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  padding: 0.25rem;
+}
+
+.room-selector__tab {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+}
+
+.room-selector__tab:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+/* -- modifier: アクティブなタブ */
+.room-selector__tab--active {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+.room-selector__tab--active:hover {
+  background-color: var(--accent-hover);
+  color: #fff;
+}
+
+/* --------------------------------------------------
+   メッセージリスト
+   -------------------------------------------------- */
+.message-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.message-list__empty {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding: 3rem 1rem;
+}
+
+/* --------------------------------------------------
+   メッセージバブル
+   -------------------------------------------------- */
+.message-bubble {
+  display: flex;
+  flex-direction: column;
+  max-width: 75%;
+}
+
+/* -- modifier: 自分のメッセージ（右寄せ） */
+.message-bubble--own {
+  align-self: flex-end;
+}
+
+.message-bubble--own .message-bubble__content {
+  background-color: var(--bubble-own);
+  color: var(--bubble-own-text);
+  border-radius: 16px 16px 4px 16px;
+}
+
+.message-bubble--own .message-bubble__time {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* -- modifier: 他人のメッセージ（左寄せ） */
+.message-bubble--other {
+  align-self: flex-start;
+}
+
+.message-bubble--other .message-bubble__content {
+  background-color: var(--bubble-other);
+  color: var(--bubble-other-text);
+  border-radius: 16px 16px 16px 4px;
+}
+
+/* -- modifier: システムメッセージ（中央寄せ） */
+.message-bubble--system {
+  align-self: center;
+  max-width: 100%;
+}
+
+.message-bubble--system .message-bubble__text {
+  color: var(--bubble-system-text);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.message-bubble__username {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 0.15rem;
+  padding-left: 0.5rem;
+}
+
+.message-bubble__content {
+  padding: 0.6rem 0.9rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.message-bubble__text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.message-bubble__time {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------
+   メッセージ入力
+   -------------------------------------------------- */
+.message-input {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.message-input__field {
+  flex: 1;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  outline: none;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  transition: border-color 0.2s;
+}
+
+.message-input__field:focus {
+  border-color: var(--accent-color);
+  background-color: var(--bg-primary);
+}
+
+.message-input__field:disabled {
+  opacity: 0.5;
+}
+
+.message-input__btn {
+  padding: 0.6rem 1.2rem;
+  background-color: var(--accent-color);
+  color: #fff;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.message-input__btn:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+}
+
+.message-input__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------
+   入力中インジケーター
+   -------------------------------------------------- */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 1rem 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.typing-indicator__dots {
+  display: flex;
+  gap: 3px;
+}
+
+.typing-indicator__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--text-muted);
+  animation: typing-bounce 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator__dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing-indicator__dot:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.typing-indicator__dot:nth-child(3) {
+  animation-delay: 0.32s;
+}
+
+/* --------------------------------------------------
+   タイピングアニメーション
+
+   【@keyframes とは？】
+   CSS アニメーションのフレーム（段階）を定義する。
+   0%(from) から 100%(to) までの変化を指定する。
+   animation プロパティでこのキーフレームを適用する。
+   -------------------------------------------------- */
+@keyframes typing-bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------
+   ユーザーリスト（サイドバー）
+   -------------------------------------------------- */
+.user-list {
+  width: 180px;
+  flex-shrink: 0;
+  background-color: var(--bg-primary);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.user-list__status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  background-color: var(--bg-secondary);
+}
+
+.user-list__status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* -- modifier: 接続状態の色 */
+.user-list__status--connected {
+  color: var(--success-color);
+}
+
+.user-list__status--connected .user-list__status-dot {
+  background-color: var(--success-color);
+}
+
+.user-list__status--connecting {
+  color: var(--warning-color);
+}
+
+.user-list__status--connecting .user-list__status-dot {
+  background-color: var(--warning-color);
+  animation: pulse 1.5s infinite;
+}
+
+.user-list__status--disconnected {
+  color: var(--danger-color);
+}
+
+.user-list__status--disconnected .user-list__status-dot {
+  background-color: var(--danger-color);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.user-list__title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.user-list__items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.user-list__item {
+  font-size: 0.85rem;
+  padding: 0.3rem 0.4rem;
+  border-radius: 4px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* -- modifier: 自分のユーザー名 */
+.user-list__item--self {
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+.user-list__self-label {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------
+   レスポンシブ対応
+   -------------------------------------------------- */
+@media (max-width: 700px) {
+  /* モバイルではサイドバーを非表示にする */
+  .user-list {
+    display: none;
+  }
+
+  .chat-page {
+    padding: 0.5rem;
+  }
+
+  .message-bubble {
+    max-width: 85%;
+  }
+}

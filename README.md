@@ -1,99 +1,169 @@
-# React + TypeScript 学習用タスク管理アプリ
+# React + TypeScript コードリーディング教材集
 
-React の全主要概念を、実際のタスク管理アプリを通じて学ぶコードリーディング教材です。
+5つの実践的なアプリケーションを通じて、React・TypeScript・バックエンド技術を段階的に学ぶコードリーディング教材です。
 
 > **前提知識**: TypeScript の基礎（型、interface、ジェネリクスなど）を理解していることが前提です。
 > TypeScript の基礎は [StudyTypescript リポジトリ](https://github.com/i-inose/StudyTypescript) で学べます。
 
 ---
 
-## セットアップ
+## 全体マップ
 
-```bash
-# フロントエンド
-npm install
-
-# バックエンド（Python）
-pip install -r requirements.txt
 ```
-
-## 起動方法
-
-```bash
-# バックエンド起動（ターミナル 1）
-python server.py
-
-# フロントエンド起動（ターミナル 2）
-npm run dev
+reactReading/
+├── 01-task-manager/     タスク管理アプリ（React 基礎）
+├── 02-mastra-rag/       AI ドキュメント Q&A（Mastra + RAG）
+├── 03-auth-blog/        認証付きブログ（JWT + SQLAlchemy）
+├── 04-realtime-chat/    リアルタイムチャット（WebSocket）
+└── 05-api-design/       商品管理 API（REST 設計パターン）
 ```
 
 ---
 
-## コードリーディング順序
+## 推奨学習順序
 
-**以下の順番で読むと、依存関係に沿って理解が進みます。**
+| 順番 | アプリ | 難易度 | 主な学習テーマ |
+|:---:|--------|:---:|--------------|
+| 1 | [01-task-manager](./01-task-manager/) | ★☆☆ | React の全主要概念（useState, useReducer, Context, Router 等） |
+| 2 | [05-api-design](./05-api-design/) | ★★☆ | REST API 設計パターン（ページネーション、フィルタ、ソート） |
+| 3 | [03-auth-blog](./03-auth-blog/) | ★★☆ | JWT 認証フロー、ORM、保護されたルート |
+| 4 | [04-realtime-chat](./04-realtime-chat/) | ★★★ | WebSocket、リアルタイム通信、イベント駆動設計 |
+| 5 | [02-mastra-rag](./02-mastra-rag/) | ★★★ | AI/RAG パイプライン、ベクトル検索、SSE ストリーミング |
 
-### Step 1: プロジェクト設定を把握する
+> 01 → 05 → 03 → 04 → 02 の順が推奨です。
+> 01 で React の基礎を固めた後、バックエンド技術を段階的に深めていきます。
 
-| # | ファイル | 学べること |
-|---|---------|-----------|
-| 1 | `package.json` | 依存パッケージ、スクリプトの構成 |
-| 2 | `tsconfig.json` | TypeScript コンパイラ設定 |
-| 3 | `vite.config.ts` | Vite（ビルドツール）の設定 |
-| 4 | `index.html` | SPA のベース HTML。`<div id="root">` がアプリのマウント先 |
+---
 
-### Step 2: バックエンドを理解する（Python / FastAPI）
+## 各アプリの概要
 
-| # | ファイル | 学べること |
-|---|---------|-----------|
-| 5 | `server.py` | **FastAPI** による REST API サーバー。`GET` / `POST` / `PATCH` / `DELETE` の CRUD 操作、**Pydantic** によるバリデーション・スキーマ定義、**CORS** 設定、`HTTPException`、デコレータ (`@app.get` 等)、型ヒント (`Literal`, `Optional`)、インメモリデータストア |
-| - | `requirements.txt` | Python の依存パッケージ一覧（`fastapi`, `uvicorn`, `pydantic`） |
+### 01-task-manager — タスク管理アプリ
 
-### Step 3: 共有型と API 通信を理解する
+**技術スタック**: React + TypeScript / FastAPI (Python)
 
-| # | ファイル | 学べること |
-|---|---------|-----------|
-| 6 | `src/types.ts` | アプリ全体で共有する **型定義**。`type` / `interface` の使い分け、ジェネリクス `ApiResponse<T>` |
-| 7 | `src/api.ts` | `fetch` API によるバックエンド通信。`async/await`、型付きレスポンス |
+React の全主要概念を、タスク管理アプリを通じて学びます。最初に取り組むべきアプリです。
 
-### Step 4: 状態管理の基盤を理解する
+**学べること**:
+- useState, useReducer, useEffect, useCallback, useMemo, useRef
+- Context API（テーマ切り替え）
+- React Router（SPA ルーティング）
+- React.memo / React.lazy + Suspense
+- Error Boundary（クラスコンポーネント）
+- createPortal（モーダル）
 
-| # | ファイル | 学べること |
-|---|---------|-----------|
-| 8 | `src/reducers/taskReducer.ts` | **useReducer** のロジック。判別共用体（Discriminated Union）による Action 型、純粋関数としての Reducer |
-| 9 | `src/contexts/ThemeContext.tsx` | **Context API** / **createContext** / **Provider パターン** / **useContext**。`localStorage` との連携、`useCallback` によるメモ化 |
-| 10 | `src/hooks/useTasks.ts` | **カスタムフック**。`useReducer` + `useEffect` + `useCallback` の組み合わせ。ロジックと UI の分離 |
+---
 
-### Step 5: UI コンポーネントを理解する（小さい部品 → 大きい部品の順）
+### 02-mastra-rag — AI ドキュメント Q&A
 
-| # | ファイル | 学べること |
-|---|---------|-----------|
-| 11 | `src/components/TaskItem.tsx` | **React.memo** による再レンダリング最適化、**useCallback** でイベントハンドラをメモ化する理由、条件付きクラス名 |
-| 12 | `src/components/TaskForm.tsx` | **useState** で入力値を管理する（制御コンポーネント）、**useRef** で DOM にアクセス、`FormEvent` / `ChangeEvent` の型 |
-| 13 | `src/components/TaskList.tsx` | **useMemo** で計算結果をキャッシュ、`map` + **key** によるリスト描画、条件付きレンダリング（早期リターン） |
-| 14 | `src/components/TaskStats.tsx` | **useMemo** で統計情報を算出、動的クラス名の切り替え |
-| 15 | `src/components/Modal.tsx` | **createPortal** で DOM ツリー外にレンダリング、**useEffect のクリーンアップ**（イベントリスナー解除）、`stopPropagation` |
-| 16 | `src/components/ErrorBoundary.tsx` | **Error Boundary**（クラスコンポーネント）、`getDerivedStateFromError` / `componentDidCatch` ライフサイクルメソッド |
-| 17 | `src/components/Header.tsx` | **React Router の Link**（SPA 内遷移）、useContext でテーマを消費する側の実装 |
-| 18 | `src/components/Layout.tsx` | **Fragment** で余分な DOM を作らない、**children** Props パターン |
+**技術スタック**: React + TypeScript / Mastra v1 + Hono (TypeScript)
 
-### Step 6: ページとルーティングを理解する
+テキスト文書をアップロードし、AI が RAG（Retrieval-Augmented Generation）で文書内容に基づいた回答を返す Q&A アプリです。
 
-| # | ファイル | 学べること |
-|---|---------|-----------|
-| 19 | `src/pages/HomePage.tsx` | カスタムフックを使った**ロジックと UI の分離**、複数コンポーネントの**コンポジション**、条件付きレンダリング（loading / error / data） |
-| 20 | `src/pages/AboutPage.tsx` | **default export**（`React.lazy` に必要）。シンプルな表示専用コンポーネント |
+**学べること**:
+- RAG パイプライン（チャンキング → 埋め込み → ベクトル検索 → 生成）
+- Mastra Agent + Tools の設計
+- ベクトルデータベース（LibSQL）
+- SSE（Server-Sent Events）によるストリーミング
+- ドラッグ＆ドロップによるファイルアップロード
+- チャット UI パターン
 
-### Step 7: アプリ全体の構成を理解する
+**必要な API キー**: `OPENAI_API_KEY`（埋め込み用）, `ANTHROPIC_API_KEY`（LLM 用）
 
-| # | ファイル | 学べること |
-|---|---------|-----------|
-| 21 | `src/App.tsx` | **React Router** (`BrowserRouter`, `Routes`, `Route`)、**React.lazy + Suspense** によるコード分割、Provider の入れ子構造、Error Boundary のスコープ |
-| 22 | `src/main.tsx` | **エントリーポイント**。`createRoot` / **StrictMode** / 非 null アサーション `!` |
+---
 
-### Step 8: スタイリングを確認する
+### 03-auth-blog — JWT 認証付きブログ
 
-| # | ファイル | 学べること |
-|---|---------|-----------|
-| 23 | `src/index.css` | CSS カスタムプロパティ（CSS 変数）、リセット CSS |
-| 24 | `src/App.css` | **BEM 記法** (`block__element--modifier`)、レスポンシブ対応 (`@media`)、テーマ対応のスタイル設計 |
+**技術スタック**: React + TypeScript / FastAPI + SQLAlchemy + SQLite (Python)
+
+ユーザー登録・ログイン機能付きのブログプラットフォームです。認証フローの実装を学びます。
+
+**学べること**:
+- JWT 認証（アクセストークン + リフレッシュトークン）
+- パスワードハッシュ化（bcrypt）
+- 認証ミドルウェア（FastAPI Depends）
+- ORM パターン（SQLAlchemy）
+- 認証コンテキスト（AuthContext + useAuth）
+- 保護されたルート（ProtectedRoute）
+- axios interceptor によるトークン自動付与
+
+---
+
+### 04-realtime-chat — リアルタイムチャット
+
+**技術スタック**: React + TypeScript / FastAPI + WebSocket (Python)
+
+WebSocket を使ったリアルタイムチャットルームです。複数ルーム対応、オンラインユーザー表示付き。
+
+**学べること**:
+- WebSocket プロトコル（接続、送受信、切断）
+- ConnectionManager パターン
+- ルーム単位のブロードキャスト
+- 判別共用体（Discriminated Union）によるメッセージ型
+- 入力中インジケーター（デバウンス）
+- useRef によるスクロール制御
+
+---
+
+### 05-api-design — REST API 設計パターン（商品管理）
+
+**技術スタック**: React + TypeScript / FastAPI + SQLAlchemy + SQLite (Python)
+
+商品管理システムを通じて、本格的な REST API 設計パターンを学びます。
+
+**学べること**:
+- ページネーション（offset/limit + 総件数）
+- フィルタリング（クエリパラメータによる動的フィルタ）
+- ソート（複数カラム、昇順/降順）
+- バックグラウンドタスク（FastAPI BackgroundTasks）
+- 検索デバウンス（useDebounce）
+- ジェネリック型の活用（PaginatedResponse\<T\>）
+
+---
+
+## セットアップ
+
+各アプリのディレクトリ内に `README.md` があり、詳しいセットアップ手順が記載されています。
+
+### 共通の前提条件
+
+- **Node.js** 18 以上
+- **Python** 3.10 以上（02-mastra-rag 以外のバックエンド）
+- **npm** または **yarn**
+
+### 基本的な起動手順
+
+```bash
+# 各アプリのディレクトリに移動
+cd 01-task-manager  # (例)
+
+# フロントエンド依存パッケージのインストール
+npm install
+
+# バックエンド依存パッケージのインストール（Python アプリの場合）
+pip install -r requirements.txt
+
+# バックエンド起動（ターミナル 1）
+python server.py          # Python アプリの場合
+# または
+npm run dev               # 02-mastra-rag は npm run dev で両方起動
+
+# フロントエンド起動（ターミナル 2）
+npm run dev               # Python アプリの場合
+```
+
+---
+
+## コメントスタイル
+
+全アプリ共通で、コードリーディング用の日本語教育コメントが付いています。
+
+- **ファイルヘッダー**: `【このファイルで学べること】` で各ファイルの概要を説明
+- **セクション区切り**: `// ----` で論理ブロックを区切り
+- **概念説明**: `【○○とは？】` で初出の概念を解説
+- **インライン**: 要点を簡潔に（書きすぎず、わかりやすく）
+
+---
+
+## 関連リポジトリ
+
+- [StudyTypescript](https://github.com/i-inose/StudyTypescript) — TypeScript 基礎（この教材集の前提知識）

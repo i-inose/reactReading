@@ -1,0 +1,14 @@
+# FastAPI: Python 製 Web フレームワーク
+fastapi>=0.115.0
+
+# Uvicorn: ASGI サーバー（FastAPI を動かすために必要）
+uvicorn>=0.34.0
+
+# Pydantic: データバリデーション（FastAPI に内包されているが明示的に記載）
+pydantic>=2.10.0
+
+# SQLAlchemy: Python の ORM（Object-Relational Mapping）ライブラリ
+sqlalchemy>=2.0.0
+
+# python-multipart: ファイルアップロード（CSV インポート）に必要
+python-multipart>=0.0.9
