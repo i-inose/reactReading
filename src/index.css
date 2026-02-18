@@ -1,0 +1,83 @@
+/* ============================================================
+   index.css ― グローバルスタイル（リセットと基本設定）
+
+   【CSS の設計方針】
+   - index.css: リセット、CSS変数、基本スタイル（グローバル）
+   - App.css: コンポーネント固有のスタイル
+   - BEM 記法: block__element--modifier の命名規則を使用
+   ============================================================ */
+
+/* --------------------------------------------------
+   CSS カスタムプロパティ（CSS 変数）
+   :root は HTML ドキュメントのルート要素を指す
+   -- で始まる名前で変数を定義し、var() で参照する
+   -------------------------------------------------- */
+:root {
+  /* ライトテーマの色 */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --border-color: #e0e0e0;
+  --accent-color: #4a90d9;
+  --accent-hover: #357abd;
+  --danger-color: #e74c3c;
+  --success-color: #27ae60;
+  --warning-color: #f39c12;
+
+  /* フォント */
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --------------------------------------------------
+   リセット CSS
+   ブラウザのデフォルトスタイルを統一する
+   -------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-secondary);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}

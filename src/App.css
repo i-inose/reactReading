@@ -1,0 +1,613 @@
+/* ============================================================
+   App.css ― コンポーネント固有のスタイル
+   BEM 記法（Block__Element--Modifier）で命名する
+   ============================================================ */
+
+/* --------------------------------------------------
+   ヘッダー
+   -------------------------------------------------- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* -- modifier: ダークテーマ */
+.header--dark {
+  background-color: #1a1a2e;
+  border-bottom-color: #333;
+  color: #e0e0e0;
+}
+
+.header__logo {
+  flex-shrink: 0;
+}
+
+.header__title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.header--dark .header__title {
+  color: #e0e0e0;
+}
+
+.header__title:hover {
+  text-decoration: none;
+  color: var(--accent-color);
+}
+
+.header__nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.header__link {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.header--dark .header__link {
+  color: #b0b0b0;
+}
+
+.header__link:hover {
+  background-color: var(--bg-secondary);
+  text-decoration: none;
+}
+
+.header--dark .header__link:hover {
+  background-color: #2a2a3e;
+}
+
+.header__theme-btn {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  transition: background-color 0.2s;
+}
+
+.header--dark .header__theme-btn {
+  background-color: #2a2a3e;
+  color: #e0e0e0;
+}
+
+.header__theme-btn:hover {
+  background-color: var(--border-color);
+}
+
+.header--dark .header__theme-btn:hover {
+  background-color: #3a3a4e;
+}
+
+/* --------------------------------------------------
+   メインコンテンツ
+   -------------------------------------------------- */
+.main-content {
+  flex: 1;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+/* --------------------------------------------------
+   フッター
+   -------------------------------------------------- */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+}
+
+/* --------------------------------------------------
+   ホームページ
+   -------------------------------------------------- */
+.home-page__title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.home-page__help-btn {
+  display: block;
+  margin: 1.5rem auto 0;
+  padding: 0.5rem 1.2rem;
+  background-color: var(--accent-color);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.home-page__help-btn:hover {
+  background-color: var(--accent-hover);
+}
+
+/* --------------------------------------------------
+   タスクフォーム
+   -------------------------------------------------- */
+.task-form {
+  margin-bottom: 1.5rem;
+}
+
+.task-form__fields {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.task-form__input {
+  flex: 1;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.task-form__input:focus {
+  border-color: var(--accent-color);
+}
+
+.task-form__select {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background-color: var(--bg-primary);
+  outline: none;
+  cursor: pointer;
+}
+
+.task-form__btn {
+  padding: 0.6rem 1.2rem;
+  background-color: var(--accent-color);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.task-form__btn:hover {
+  background-color: var(--accent-hover);
+}
+
+/* --------------------------------------------------
+   タスク統計
+   -------------------------------------------------- */
+.task-stats {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--bg-primary);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.task-stats__summary {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.task-stats__filters {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.task-stats__filter-btn {
+  padding: 0.3rem 0.8rem;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  background-color: var(--bg-secondary);
+  transition: all 0.2s;
+}
+
+.task-stats__filter-btn:hover {
+  background-color: var(--border-color);
+}
+
+/* -- modifier: アクティブなフィルター */
+.task-stats__filter-btn--active {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+.task-stats__filter-btn--active:hover {
+  background-color: var(--accent-hover);
+}
+
+/* --------------------------------------------------
+   タスクリスト
+   -------------------------------------------------- */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.task-list__empty {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* --------------------------------------------------
+   タスクアイテム
+   -------------------------------------------------- */
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: box-shadow 0.2s;
+}
+
+.task-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* -- modifier: 完了済みタスク */
+.task-item--done {
+  opacity: 0.6;
+}
+
+.task-item--done .task-item__title {
+  text-decoration: line-through;
+}
+
+.task-item__toggle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.task-item--done .task-item__toggle {
+  border-color: var(--success-color);
+  background-color: var(--success-color);
+}
+
+.task-item__check {
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.task-item__toggle:hover {
+  border-color: var(--accent-color);
+}
+
+.task-item__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.task-item__title {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+.task-item__meta {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+}
+
+.task-item__priority {
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.task-item__priority--high {
+  background-color: #fde8e8;
+  color: var(--danger-color);
+}
+
+.task-item__priority--medium {
+  background-color: #fef3cd;
+  color: #856404;
+}
+
+.task-item__priority--low {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.task-item__date {
+  color: var(--text-secondary);
+}
+
+.task-item__delete {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.task-item__delete:hover {
+  background-color: #fde8e8;
+  color: var(--danger-color);
+}
+
+/* --------------------------------------------------
+   モーダル
+   -------------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal {
+  background-color: var(--bg-primary);
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.modal__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.modal__close {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: background-color 0.2s;
+}
+
+.modal__close:hover {
+  background-color: var(--bg-secondary);
+}
+
+.modal__body {
+  padding: 1.25rem;
+}
+
+/* ヘルプコンテンツ */
+.help-content h3 {
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+
+.help-content h3:first-child {
+  margin-top: 0;
+}
+
+.help-content p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------
+   エラーバウンダリ
+   -------------------------------------------------- */
+.error-boundary {
+  text-align: center;
+  padding: 3rem 1.5rem;
+}
+
+.error-boundary h2 {
+  color: var(--danger-color);
+  margin-bottom: 0.5rem;
+}
+
+.error-boundary p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.error-boundary__details {
+  text-align: left;
+  margin: 1rem auto;
+  max-width: 500px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.error-boundary__details pre {
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  background-color: var(--bg-secondary);
+  border-radius: 6px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+.error-boundary__btn {
+  padding: 0.5rem 1.2rem;
+  background-color: var(--accent-color);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.error-boundary__btn:hover {
+  background-color: var(--accent-hover);
+}
+
+/* --------------------------------------------------
+   ローディング・エラーページ
+   -------------------------------------------------- */
+.page-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.page-error {
+  text-align: center;
+  padding: 3rem 1.5rem;
+}
+
+.page-error p {
+  color: var(--danger-color);
+  margin-bottom: 1rem;
+}
+
+.page-error__btn {
+  padding: 0.5rem 1.2rem;
+  background-color: var(--accent-color);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.page-error__btn:hover {
+  background-color: var(--accent-hover);
+}
+
+/* 404 ページ */
+.not-found {
+  text-align: center;
+  padding: 3rem;
+}
+
+.not-found h1 {
+  font-size: 4rem;
+  color: var(--text-secondary);
+}
+
+.not-found p {
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+}
+
+/* --------------------------------------------------
+   About ページ
+   -------------------------------------------------- */
+.about-page {
+  padding: 1rem 0;
+}
+
+.about-page__title {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-page__section {
+  margin-bottom: 1.5rem;
+}
+
+.about-page__section h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.about-page__section p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.about-page__list {
+  padding-left: 1.5rem;
+  list-style: disc;
+}
+
+.about-page__list li {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.about-page__list li strong {
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------
+   レスポンシブ対応
+   -------------------------------------------------- */
+@media (max-width: 600px) {
+  .header {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .header__nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .task-form__fields {
+    flex-direction: column;
+  }
+
+  .task-stats__summary {
+    justify-content: center;
+  }
+}
