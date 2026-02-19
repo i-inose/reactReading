@@ -1,0 +1,394 @@
+/* ============================================================
+   App.css ― コンポーネントスタイル（BEM 記法）
+
+   【このファイルで学べること】
+   - BEM（Block Element Modifier）によるクラス命名規則
+   - CSS Grid によるギャラリーレイアウト
+   - レスポンシブデザインの基本
+   ============================================================ */
+
+/* --------------------------------------------------
+   Header（ヘッダー）
+-------------------------------------------------- */
+.header {
+  background-color: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header__link {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.header__link:hover {
+  color: var(--color-primary);
+}
+
+.header__link--accent {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.header__user {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  padding: 0.25rem 0.5rem;
+  background-color: var(--color-accent);
+  border-radius: var(--radius);
+}
+
+.header__button {
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.header__button:hover {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+/* --------------------------------------------------
+   Layout（レイアウト）
+-------------------------------------------------- */
+.layout__main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* --------------------------------------------------
+   Page（ページ共通）
+-------------------------------------------------- */
+.page__header {
+  margin-bottom: 2rem;
+}
+
+.page__title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.page__description {
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+}
+
+.page--narrow {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.page__link-text {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.page__link {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+/* --------------------------------------------------
+   Gallery Grid（ギャラリーグリッド）
+-------------------------------------------------- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* --------------------------------------------------
+   Image Card（画像カード）
+-------------------------------------------------- */
+.image-card {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.image-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.image-card__image-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: var(--color-accent);
+}
+
+.image-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.image-card__body {
+  padding: 1rem 1.25rem;
+}
+
+.image-card__title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: var(--color-text);
+}
+
+.image-card__description {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.image-card__meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.image-card__owner {
+  font-weight: 500;
+}
+
+.image-card__delete {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  background-color: transparent;
+  color: var(--color-danger);
+  border: 1px solid var(--color-danger);
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.image-card__delete:hover {
+  background-color: var(--color-danger);
+  color: #ffffff;
+}
+
+/* --------------------------------------------------
+   Add Image Button（画像追加ボタン）
+-------------------------------------------------- */
+.page__add-button {
+  display: inline-block;
+  padding: 0.6rem 1.25rem;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.page__add-button:hover {
+  background-color: var(--color-primary-hover);
+  color: #ffffff;
+}
+
+/* --------------------------------------------------
+   Form（フォーム共通）
+-------------------------------------------------- */
+.form {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+.form__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form__error {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: var(--color-danger);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  border: 1px solid rgba(220, 53, 69, 0.2);
+}
+
+.form__field {
+  margin-bottom: 1.25rem;
+}
+
+.form__label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+  color: var(--color-text);
+}
+
+.form__input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: border-color 0.2s;
+}
+
+.form__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(74, 144, 217, 0.15);
+}
+
+.form__textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-family: inherit;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  resize: vertical;
+  min-height: 80px;
+  transition: border-color 0.2s;
+}
+
+.form__textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(74, 144, 217, 0.15);
+}
+
+.form__preview {
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.form__preview-image {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.form__submit {
+  width: 100%;
+  padding: 0.7rem 1.5rem;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 0.5rem;
+}
+
+.form__submit:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+}
+
+.form__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------
+   Utility（ユーティリティクラス）
+-------------------------------------------------- */
+.loading {
+  text-align: center;
+  padding: 3rem;
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+.error-message {
+  text-align: center;
+  padding: 2rem;
+  color: var(--color-danger);
+  font-size: 0.95rem;
+}
+
+.empty-message {
+  text-align: center;
+  padding: 3rem;
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+/* --------------------------------------------------
+   Responsive（レスポンシブ対応）
+-------------------------------------------------- */
+@media (max-width: 600px) {
+  .header__inner {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .header__nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form {
+    padding: 1.25rem;
+  }
+}

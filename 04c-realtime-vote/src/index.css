@@ -1,0 +1,102 @@
+/* ============================================================
+   index.css ― グローバルスタイル（リセットと基本設定）
+
+   【CSS の設計方針】
+   - index.css: リセット、CSS変数、基本スタイル（グローバル）
+   - App.css: コンポーネント固有のスタイル
+   - BEM 記法: block__element--modifier の命名規則を使用
+   ============================================================ */
+
+/* --------------------------------------------------
+   CSS カスタムプロパティ（CSS 変数）
+   :root は HTML ドキュメントのルート要素を指す
+   var() で参照して、テーマ切り替えに対応する
+   -------------------------------------------------- */
+:root {
+  /* ライトテーマの色定義 */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f7fa;
+  --bg-tertiary: #e8ecf1;
+  --text-primary: #1a1a2e;
+  --text-secondary: #666680;
+  --text-muted: #999;
+  --border-color: #e0e4ea;
+  --accent-color: #4a90d9;
+  --accent-hover: #357abd;
+  --accent-light: #e8f0fe;
+  --danger-color: #e74c3c;
+  --success-color: #27ae60;
+  --warning-color: #f39c12;
+
+  /* フォント */
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --------------------------------------------------
+   ダークテーマの色定義
+   -------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #16162a;
+    --bg-tertiary: #252545;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0b0;
+    --text-muted: #777;
+    --border-color: #333355;
+    --accent-light: #252545;
+  }
+}
+
+/* --------------------------------------------------
+   リセット CSS
+   -------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-secondary);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+input {
+  font-family: inherit;
+  font-size: inherit;
+}

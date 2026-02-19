@@ -1,0 +1,73 @@
+/* ============================================================
+   index.css ― グローバルスタイル + CSS カスタムプロパティ
+
+   【このファイルで学べること】
+   - CSS カスタムプロパティ（変数）によるテーマ管理
+   - ライトモード / ダークモードの切り替え
+   - リセット CSS の基本
+   ============================================================ */
+
+:root {
+  /* ライトモード（デフォルト） */
+  --color-bg: #f8f9fa;
+  --color-bg-secondary: #ffffff;
+  --color-text: #212529;
+  --color-text-secondary: #6c757d;
+  --color-border: #dee2e6;
+  --color-primary: #4a90d9;
+  --color-primary-hover: #357abd;
+  --color-danger: #dc3545;
+  --color-danger-hover: #c82333;
+  --color-success: #28a745;
+  --color-accent: #e9ecef;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --radius: 8px;
+  --max-width: 1000px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #1a1b1e;
+    --color-bg-secondary: #25262b;
+    --color-text: #e9ecef;
+    --color-text-secondary: #adb5bd;
+    --color-border: #373a40;
+    --color-primary: #5ca8f5;
+    --color-primary-hover: #4a96e0;
+    --color-danger: #f06c75;
+    --color-danger-hover: #e05560;
+    --color-success: #51cf66;
+    --color-accent: #2c2e33;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* リセット CSS */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}

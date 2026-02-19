@@ -1,0 +1,718 @@
+/* ============================================================
+   App.css --- コンポーネント固有のスタイル（BEM 記法）
+   ============================================================ */
+
+/* --------------------------------------------------
+   ヘッダー
+   -------------------------------------------------- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header__title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.header__title:hover {
+  text-decoration: none;
+  color: var(--accent-color);
+}
+
+.header__nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.header__link {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.header__link:hover {
+  background-color: var(--bg-secondary);
+  text-decoration: none;
+}
+
+.header__unit-btn {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  border: 1px solid var(--border-color);
+}
+
+.header__unit-btn:hover {
+  background-color: var(--border-color);
+}
+
+/* --------------------------------------------------
+   メインコンテンツ
+   -------------------------------------------------- */
+.main-content {
+  flex: 1;
+  max-width: 860px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+/* --------------------------------------------------
+   フッター
+   -------------------------------------------------- */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+}
+
+/* --------------------------------------------------
+   ホームページ
+   -------------------------------------------------- */
+.home-page__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.home-page__title {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.home-page__add-btn {
+  padding: 0.5rem 1rem;
+  background-color: var(--accent-color);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.home-page__add-btn:hover {
+  background-color: var(--accent-hover);
+}
+
+/* --------------------------------------------------
+   レシピフォーム
+   -------------------------------------------------- */
+.recipe-form {
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+}
+
+.recipe-form__title {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.recipe-form__row {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.recipe-form__input {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: border-color 0.2s;
+}
+
+.recipe-form__input:focus {
+  border-color: var(--accent-color);
+}
+
+.recipe-form__input--sm {
+  flex: 0 1 160px;
+}
+
+.recipe-form__input--xs {
+  flex: 0 1 80px;
+}
+
+.recipe-form__select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  outline: none;
+  cursor: pointer;
+}
+
+.recipe-form__fieldset {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.recipe-form__fieldset legend {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 0 0.4rem;
+}
+
+.recipe-form__ingredient-row,
+.recipe-form__step-row {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+  align-items: center;
+}
+
+.recipe-form__step-num {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  min-width: 1.5rem;
+  text-align: right;
+}
+
+.recipe-form__add-btn {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+.recipe-form__add-btn:hover {
+  text-decoration: underline;
+}
+
+.recipe-form__remove-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--danger-color);
+  font-size: 1rem;
+  font-weight: bold;
+  flex-shrink: 0;
+  transition: background-color 0.2s;
+}
+
+.recipe-form__remove-btn:hover {
+  background-color: #fde8e8;
+}
+
+.recipe-form__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.recipe-form__submit-btn {
+  padding: 0.5rem 1.5rem;
+  background-color: var(--accent-color);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.recipe-form__submit-btn:hover {
+  background-color: var(--accent-hover);
+}
+
+.recipe-form__cancel-btn {
+  padding: 0.5rem 1.5rem;
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  border: 1px solid var(--border-color);
+  transition: background-color 0.2s;
+}
+
+.recipe-form__cancel-btn:hover {
+  background-color: var(--border-color);
+}
+
+/* --------------------------------------------------
+   レシピ統計
+   -------------------------------------------------- */
+.recipe-stats {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--bg-primary);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.recipe-stats__summary {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.recipe-stats__filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.recipe-stats__filter-btn {
+  padding: 0.3rem 0.8rem;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  background-color: var(--bg-secondary);
+  transition: all 0.2s;
+}
+
+.recipe-stats__filter-btn:hover {
+  background-color: var(--border-color);
+}
+
+.recipe-stats__filter-btn--active {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+.recipe-stats__filter-btn--active:hover {
+  background-color: var(--accent-hover);
+}
+
+/* --------------------------------------------------
+   レシピリスト
+   -------------------------------------------------- */
+.recipe-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.recipe-list__empty {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  grid-column: 1 / -1;
+}
+
+/* --------------------------------------------------
+   レシピカード
+   -------------------------------------------------- */
+.recipe-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.recipe-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.recipe-card__image-wrap {
+  position: relative;
+  cursor: pointer;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.recipe-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.recipe-card__image-wrap:hover .recipe-card__image {
+  transform: scale(1.05);
+}
+
+.recipe-card__category {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  padding: 0.15rem 0.5rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+.recipe-card__body {
+  padding: 0.75rem;
+}
+
+.recipe-card__name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+.recipe-card__name:hover {
+  color: var(--accent-color);
+}
+
+.recipe-card__meta {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.35rem;
+}
+
+.recipe-card__ingredients {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.recipe-card__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recipe-card__fav-btn {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  transition: color 0.2s, transform 0.2s;
+}
+
+.recipe-card__fav-btn:hover {
+  transform: scale(1.2);
+}
+
+.recipe-card__fav-btn--active {
+  color: var(--favorite-color);
+}
+
+.recipe-card__delete-btn {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.recipe-card__delete-btn:hover {
+  background-color: #fde8e8;
+  color: var(--danger-color);
+}
+
+/* --------------------------------------------------
+   モーダル
+   -------------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal {
+  background-color: var(--bg-primary);
+  border-radius: 12px;
+  max-width: 560px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.modal__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.modal__close {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: background-color 0.2s;
+}
+
+.modal__close:hover {
+  background-color: var(--bg-secondary);
+}
+
+.modal__body {
+  padding: 1.25rem;
+}
+
+/* --------------------------------------------------
+   レシピ詳細（モーダル内）
+   -------------------------------------------------- */
+.recipe-detail__image {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.recipe-detail__meta {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.recipe-detail h3 {
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+  color: var(--text-primary);
+}
+
+.recipe-detail__ingredients {
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+
+.recipe-detail__ingredients li {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.recipe-detail__steps {
+  padding-left: 1.2rem;
+  list-style: decimal;
+}
+
+.recipe-detail__steps li {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.recipe-detail__actions {
+  margin-top: 1.25rem;
+  text-align: right;
+}
+
+.recipe-detail__edit-btn {
+  padding: 0.5rem 1.2rem;
+  background-color: var(--accent-color);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.recipe-detail__edit-btn:hover {
+  background-color: var(--accent-hover);
+}
+
+/* --------------------------------------------------
+   お気に入りページ
+   -------------------------------------------------- */
+.favorites-page__title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.favorites-page__empty {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------
+   エラーバウンダリ
+   -------------------------------------------------- */
+.error-boundary {
+  text-align: center;
+  padding: 3rem 1.5rem;
+}
+
+.error-boundary h2 {
+  color: var(--danger-color);
+  margin-bottom: 0.5rem;
+}
+
+.error-boundary p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.error-boundary__details {
+  text-align: left;
+  margin: 1rem auto;
+  max-width: 500px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.error-boundary__details pre {
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  background-color: var(--bg-secondary);
+  border-radius: 6px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+.error-boundary__btn {
+  padding: 0.5rem 1.2rem;
+  background-color: var(--accent-color);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.error-boundary__btn:hover {
+  background-color: var(--accent-hover);
+}
+
+/* --------------------------------------------------
+   ローディング・404
+   -------------------------------------------------- */
+.page-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.not-found {
+  text-align: center;
+  padding: 3rem;
+}
+
+.not-found h1 {
+  font-size: 4rem;
+  color: var(--text-secondary);
+}
+
+.not-found p {
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+}
+
+/* --------------------------------------------------
+   About ページ
+   -------------------------------------------------- */
+.about-page {
+  padding: 1rem 0;
+}
+
+.about-page__title {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-page__section {
+  margin-bottom: 1.5rem;
+}
+
+.about-page__section h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.about-page__section p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.about-page__list {
+  padding-left: 1.5rem;
+  list-style: disc;
+}
+
+.about-page__list li {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.about-page__list li strong {
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------
+   レスポンシブ
+   -------------------------------------------------- */
+@media (max-width: 600px) {
+  .header {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .header__nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .recipe-list {
+    grid-template-columns: 1fr;
+  }
+
+  .recipe-form__row {
+    flex-direction: column;
+  }
+
+  .recipe-form__input--sm,
+  .recipe-form__input--xs {
+    flex: 1;
+  }
+}

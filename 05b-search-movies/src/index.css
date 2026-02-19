@@ -1,0 +1,129 @@
+/* ============================================================
+   index.css ― グローバルスタイル（リセット + CSS カスタムプロパティ）
+
+   【このファイルで学べること】
+   1. CSS カスタムプロパティによるテーマ管理
+   2. ダークモード対応（prefers-color-scheme）
+   ============================================================ */
+
+:root {
+  --color-bg: #f5f5f7;
+  --color-surface: #ffffff;
+  --color-text: #1d1d1f;
+  --color-text-secondary: #6e6e73;
+  --color-border: #d2d2d7;
+  --color-primary: #5856d6;
+  --color-primary-hover: #6e6cd8;
+  --color-danger: #ff3b30;
+  --color-success: #34c759;
+  --color-warning: #ff9500;
+  --color-badge-bg: #e8e8ed;
+  --color-badge-text: #1d1d1f;
+  --color-rating-high: #34c759;
+  --color-rating-mid: #ff9500;
+  --color-rating-low: #ff3b30;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #1c1c1e;
+    --color-surface: #2c2c2e;
+    --color-text: #f5f5f7;
+    --color-text-secondary: #98989d;
+    --color-border: #48484a;
+    --color-primary: #7d7aff;
+    --color-primary-hover: #9b99ff;
+    --color-badge-bg: #3a3a3c;
+    --color-badge-text: #f5f5f7;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: var(--color-primary-hover);
+}
+
+.btn--secondary {
+  background: var(--color-badge-bg);
+  color: var(--color-text);
+}
+
+.btn--secondary:hover {
+  opacity: 0.8;
+}
+
+.empty-message {
+  text-align: center;
+  padding: 48px 0;
+  color: var(--color-text-secondary);
+  font-size: 1.1rem;
+}
+
+.error-message {
+  text-align: center;
+  padding: 24px;
+  color: var(--color-danger);
+  background: rgba(255, 59, 48, 0.1);
+  border-radius: var(--radius-md);
+  margin: 16px 0;
+}

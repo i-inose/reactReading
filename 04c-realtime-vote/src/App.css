@@ -1,0 +1,448 @@
+/* ============================================================
+   App.css ― コンポーネント固有のスタイル
+   BEM 記法（Block__Element--Modifier）で命名する
+   ============================================================ */
+
+/* --------------------------------------------------
+   アプリ全体のレイアウト
+   -------------------------------------------------- */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------
+   参加ページ
+   -------------------------------------------------- */
+.join-page {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.join-form {
+  width: 100%;
+  max-width: 400px;
+  padding: 2.5rem 2rem;
+  background-color: var(--bg-primary);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.join-form__title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.join-form__description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.join-form__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.join-form__input {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: border-color 0.2s;
+}
+
+.join-form__input:focus {
+  border-color: var(--accent-color);
+}
+
+.join-form__error {
+  color: var(--danger-color);
+  font-size: 0.85rem;
+}
+
+.join-form__btn {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent-color);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.join-form__btn:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+}
+
+.join-form__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------
+   投票ページ
+   -------------------------------------------------- */
+.vote-page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.vote-page__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background-color: var(--bg-primary);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.vote-page__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.vote-page__user {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.vote-page__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ローディング状態 */
+.vote-page__loading {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--text-secondary);
+}
+
+.vote-page__spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--accent-color);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 切断状態 */
+.vote-page__disconnected {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--text-secondary);
+}
+
+.vote-page__reconnect-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent-color);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.vote-page__reconnect-btn:hover {
+  background-color: var(--accent-hover);
+}
+
+/* 接続済み: メインコンテンツ */
+.vote-page__content {
+  display: flex;
+  gap: 1rem;
+}
+
+.vote-page__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.vote-page__sidebar {
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.vote-page__footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.25rem 0;
+}
+
+.vote-page__leave-btn {
+  padding: 0.5rem 1.2rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  border-radius: 6px;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.vote-page__leave-btn:hover {
+  color: var(--danger-color);
+  background-color: var(--accent-light);
+}
+
+/* --------------------------------------------------
+   質問カード
+   -------------------------------------------------- */
+.question-card {
+  background-color: var(--bg-primary);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+}
+
+.question-card__text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.question-card__options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.question-card__option-btn {
+  padding: 0.9rem 1.2rem;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+  transition: all 0.2s;
+}
+
+.question-card__option-btn:hover {
+  border-color: var(--accent-color);
+  background-color: var(--accent-light);
+  color: var(--accent-color);
+}
+
+.question-card__results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.question-card__total {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* --------------------------------------------------
+   投票バー（横棒グラフ）
+   -------------------------------------------------- */
+.vote-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.vote-bar--selected {
+  /* 自分が選んだ選択肢を少し強調する */
+}
+
+.vote-bar--selected .vote-bar__label {
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.vote-bar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vote-bar__label {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.vote-bar__check {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.vote-bar__stats {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.vote-bar__track {
+  height: 28px;
+  background-color: var(--bg-tertiary);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.vote-bar__fill {
+  height: 100%;
+  border-radius: 6px;
+  /* transition でバーが滑らかに伸縮する */
+  transition: width 0.4s ease-out;
+  min-width: 0;
+}
+
+/* --------------------------------------------------
+   ユーザーリスト
+   -------------------------------------------------- */
+.user-list {
+  background-color: var(--bg-primary);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.user-list__title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.user-list__count {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-left: 0.25rem;
+}
+
+.user-list__items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.user-list__item {
+  font-size: 0.85rem;
+  padding: 0.3rem 0.4rem;
+  border-radius: 4px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.user-list__item--self {
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+.user-list__self-label {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------
+   タイマー
+   -------------------------------------------------- */
+.timer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1rem;
+  background-color: var(--bg-primary);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.timer__display {
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+  min-width: 3rem;
+  text-align: center;
+}
+
+.timer__track {
+  flex: 1;
+  height: 6px;
+  background-color: var(--bg-tertiary);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.timer__fill {
+  height: 100%;
+  background-color: var(--accent-color);
+  border-radius: 3px;
+  transition: width 1s linear;
+}
+
+.timer__label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------
+   レスポンシブ対応
+   -------------------------------------------------- */
+@media (max-width: 700px) {
+  .vote-page__content {
+    flex-direction: column;
+  }
+
+  .vote-page__sidebar {
+    width: 100%;
+  }
+
+  .vote-page {
+    padding: 0.5rem;
+  }
+}
